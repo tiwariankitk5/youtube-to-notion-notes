@@ -1,0 +1,211 @@
+:root {
+  --ytn-bg: #f6f1e8;
+  --ytn-paper: rgba(255, 252, 247, 0.94);
+  --ytn-ink: #1c1b1a;
+  --ytn-muted: #6c655d;
+  --ytn-line: rgba(28, 27, 26, 0.1);
+  --ytn-accent: #d87432;
+  --ytn-accent-soft: rgba(216, 116, 50, 0.14);
+  --ytn-shadow: 0 22px 60px rgba(35, 26, 14, 0.18);
+}
+
+#ytn-notes-panel,
+#ytn-notes-trigger {
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.ytn-trigger {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2147483646;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d87432, #8f4b1f);
+  color: #fffaf4;
+  padding: 14px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: var(--ytn-shadow);
+  cursor: pointer;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.ytn-trigger:hover {
+  transform: translateY(-2px);
+}
+
+.ytn-trigger.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ytn-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483645;
+  width: min(480px, 100vw);
+  height: 100vh;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at top left, rgba(216, 116, 50, 0.16), transparent 28%),
+    linear-gradient(180deg, #fbf7f1 0%, #f0e8da 100%);
+  border-left: 1px solid rgba(28, 27, 26, 0.08);
+  box-shadow: -24px 0 60px rgba(39, 28, 15, 0.18);
+  padding: 28px 22px 120px;
+  transform: translateX(100%);
+  transition: transform 220ms ease;
+  color: var(--ytn-ink);
+}
+
+.ytn-panel.is-open {
+  transform: translateX(0);
+}
+
+.ytn-panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ytn-panel-header h2,
+.ytn-panel-header h3,
+.ytn-panel h4,
+.ytn-panel h5 {
+  margin: 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.ytn-panel-header h2 {
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.ytn-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: var(--ytn-accent);
+}
+
+.ytn-meta,
+.ytn-muted {
+  color: var(--ytn-muted);
+}
+
+.ytn-actions,
+.ytn-block-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.ytn-actions button,
+.ytn-close {
+  border: 1px solid var(--ytn-line);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ytn-ink);
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.ytn-summary-card,
+.ytn-card,
+.ytn-chapter-card,
+.ytn-error-card,
+.ytn-empty {
+  background: var(--ytn-paper);
+  border: 1px solid rgba(28, 27, 26, 0.08);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 8px 30px rgba(48, 35, 18, 0.08);
+  backdrop-filter: blur(8px);
+}
+
+.ytn-summary-card {
+  margin-bottom: 16px;
+  border-left: 4px solid var(--ytn-accent);
+}
+
+.ytn-block-grid {
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 16px;
+}
+
+.ytn-card ul,
+.ytn-chapter-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.ytn-chapters {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.ytn-chapter-summary {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.ytn-visual-card {
+  background:
+    linear-gradient(180deg, rgba(216, 116, 50, 0.09), rgba(216, 116, 50, 0.03)),
+    var(--ytn-paper);
+}
+
+.ytn-viz-list,
+.ytn-glossary {
+  display: grid;
+  gap: 10px;
+}
+
+.ytn-viz-item,
+.ytn-glossary-item {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px dashed rgba(28, 27, 26, 0.12);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.ytn-panel blockquote {
+  margin: 14px 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--ytn-accent);
+  background: var(--ytn-accent-soft);
+  border-radius: 0 12px 12px 0;
+}
+
+.ytn-markdown {
+  white-space: pre-wrap;
+  background: #201c19;
+  color: #f4eee6;
+  padding: 16px;
+  border-radius: 16px;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .ytn-panel {
+    width: 100vw;
+    padding: 20px 16px 120px;
+  }
+
+  .ytn-block-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ytn-trigger {
+    right: 16px;
+    left: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+}
