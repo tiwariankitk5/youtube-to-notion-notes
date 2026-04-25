@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # YouTube to Notion Notes
 
 A Chrome extension MVP that turns a YouTube video into structured AI notes, section-by-section visual explanations, and a Notion-inspired reading layout.
@@ -64,3 +65,6 @@ You can swap these out if you want to use a different compatible endpoint.
 - Local caching per video
 - Multi-language transcript support
 - Search across saved notes
+=======
+# youtube-to-notion-notes
+>>>>>>> b26ff2e018bf93c64e34b6015c03a41402fa95b3
